@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Landmark, Calendar } from "lucide-react";
 
 interface Props {
@@ -9,12 +9,18 @@ interface Props {
 }
 
 export default function Header({ title, subtitle, children }: Props) {
-  const today = new Date().toLocaleDateString("en-IN", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  // Set after mount: server and client Intl output can differ and cause a hydration mismatch.
+  const [today, setToday] = useState("");
+  useEffect(() => {
+    setToday(
+      new Date().toLocaleDateString("en-IN", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    );
+  }, []);
 
   return (
     <header className="bg-white border-b border-temple-border px-4 sm:px-8 py-4 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -30,7 +36,7 @@ export default function Header({ title, subtitle, children }: Props) {
         </div>
         <div className="flex items-center gap-1.5 text-xs text-gray-500 mt-1">
           <Calendar size={13} className="text-saffron-600" />
-          <span>{today}</span>
+          <span suppressHydrationWarning>{today}</span>
         </div>
       </div>
 

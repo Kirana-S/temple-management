@@ -117,7 +117,7 @@ export default function ReportsPage() {
           </div>
           <div className="text-xs text-gray-500 mt-1">
             Period: {startDate || "Beginning"} to {endDate || "Today"} | Generated on:{" "}
-            {new Date().toLocaleDateString("en-IN")}
+            <span suppressHydrationWarning>{new Date().toLocaleDateString("en-IN")}</span>
           </div>
         </div>
 
