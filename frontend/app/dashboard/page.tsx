@@ -82,7 +82,7 @@ export default function DashboardPage() {
         </button>
       </Header>
 
-      <div className="px-8 py-6 space-y-6">
+      <div className="px-4 sm:px-8 py-6 space-y-6">
         {/* Quick Action Buttons */}
         <div className="flex flex-wrap items-center gap-3 bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/80">
           <span className="text-xs font-bold uppercase tracking-wider text-saffron-900 mr-2">

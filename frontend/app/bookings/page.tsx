@@ -135,7 +135,7 @@ export default function BookingsPage() {
         </Link>
       </Header>
 
-      <div className="px-8 py-6 space-y-6">
+      <div className="px-4 sm:px-8 py-6 space-y-6">
         {/* Search & Date Filter Bar */}
         <div className="bg-white p-4 rounded-xl shadow-sm border border-temple-border flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">

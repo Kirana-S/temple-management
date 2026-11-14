@@ -20,7 +20,7 @@ export default function RootLayout({
         <ToastProvider>
           <div className="flex min-h-screen">
             <Sidebar />
-            <main className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+            <main className="flex-1 flex flex-col min-w-0 overflow-x-hidden pt-14 md:pt-0">
               {children}
             </main>
           </div>

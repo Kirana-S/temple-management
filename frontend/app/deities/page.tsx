@@ -113,7 +113,7 @@ export default function DeitiesPage() {
         </button>
       </Header>
 
-      <div className="px-8 py-6 space-y-6">
+      <div className="px-4 sm:px-8 py-6 space-y-6">
         {/* Banner about default deities */}
         <div className="bg-amber-50 border border-saffron-200 p-4 rounded-xl flex items-start gap-3">
           <Info size={18} className="text-saffron-700 shrink-0 mt-0.5" />

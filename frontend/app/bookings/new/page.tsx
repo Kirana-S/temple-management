@@ -175,7 +175,7 @@ export default function NewBookingPage() {
         </Link>
       </Header>
 
-      <div className="max-w-3xl mx-auto px-8 py-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-8 py-6 sm:py-8">
         <div className="bg-white rounded-xl shadow-sm border border-temple-border p-6 sm:p-8">
           <div className="flex items-center gap-2.5 pb-4 mb-6 border-b border-gray-100">
             <div className="p-2.5 rounded-lg bg-saffron-100 text-saffron-700">

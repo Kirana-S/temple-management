@@ -106,7 +106,7 @@ export default function ReportsPage() {
         </Header>
       </div>
 
-      <div className="px-8 py-6 space-y-6">
+      <div className="px-4 sm:px-8 py-6 space-y-6">
         {/* Printable Temple Header (Only visible on print) */}
         <div className="hidden print:block text-center border-b-2 border-maroon-700 pb-4 mb-6">
           <div className="text-2xl font-bold text-maroon-700">

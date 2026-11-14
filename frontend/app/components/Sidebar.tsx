@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -12,6 +12,8 @@ import {
   ReceiptText,
   BarChart3,
   Landmark,
+  Menu,
+  X,
 } from "lucide-react";
 
 const navItems = [
@@ -27,9 +29,57 @@ const navItems = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
-    <aside className="w-64 min-h-screen bg-white border-r border-temple-border flex flex-col shadow-sm select-none">
+    <>
+    {/* Mobile top bar */}
+    <div className="md:hidden fixed top-0 inset-x-0 z-30 h-14 temple-gradient text-white flex items-center gap-3 px-4 shadow-md">
+      <button
+        type="button"
+        aria-label="Open menu"
+        onClick={() => setOpen(true)}
+        className="p-1.5 -ml-1.5 rounded-lg hover:bg-white/20"
+      >
+        <Menu size={22} />
+      </button>
+      <span className="text-xl">🕉️</span>
+      <span className="font-bold text-sm truncate">Bhairaveshwara Swami</span>
+    </div>
+
+    {/* Mobile backdrop */}
+    {open && (
+      <div
+        className="md:hidden fixed inset-0 z-40 bg-black/50"
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+    )}
+
+    <aside
+      className={`fixed inset-y-0 left-0 z-50 w-64 max-w-[80vw] h-screen bg-white border-r border-temple-border flex flex-col shadow-sm select-none transition-transform duration-200 md:sticky md:top-0 md:z-auto md:max-w-none md:shrink-0 md:translate-x-0 ${
+        open ? "translate-x-0" : "-translate-x-full"
+      }`}
+    >
+      <button
+        type="button"
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
+        className="md:hidden absolute top-3 right-3 z-10 p-1.5 rounded-lg text-white hover:bg-white/20"
+      >
+        <X size={20} />
+      </button>
       {/* Temple Branding Header */}
       <div className="temple-gradient p-5 text-white">
         <div className="flex items-center gap-2 mb-2">
@@ -77,5 +127,6 @@ export default function Sidebar() {
         <p className="text-[11px] text-gray-400 mt-1">Version 1.0 • Phase 1</p>
       </div>
     </aside>
+    </>
   );
 }

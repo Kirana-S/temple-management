@@ -109,7 +109,7 @@ export default function DevoteesPage() {
         </Link>
       </Header>
 
-      <div className="px-8 py-6 space-y-6">
+      <div className="px-4 sm:px-8 py-6 space-y-6">
         {/* Search & Stats Bar */}
         <div className="bg-white p-4 rounded-xl shadow-sm border border-temple-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <form onSubmit={handleSearch} className="flex items-center gap-2 w-full sm:w-80">
